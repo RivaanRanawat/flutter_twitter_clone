@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/apis/notification_api.dart';
 import 'package:twitter_clone/core/enums/notification_type_enum.dart';
@@ -42,7 +41,7 @@ class NotificationController extends StateNotifier<bool> {
       notificationType: notificationType,
     );
     final res = await _notificationAPI.createNotification(notification);
-    res.fold((l) => print(l.message), (r) => null);
+    res.fold((l) => null, (r) => null);
   }
 
   Future<List<model.Notification>> getNotifications(String uid) async {
